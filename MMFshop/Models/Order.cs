@@ -4,14 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
-    public class Consultant
+    public class Order
     {
         public int Id { get; set; }
 
         [Required]
-        public string ConsultantFIO { get; set; }
+        public string OrderName { get; set; }
 
-        [ForeignKey("ConsultantId")]
+        [Required]
+        public decimal Price { get; set; }
+
+        [ForeignKey("OrderId")]
         public virtual List<Entry> Entrys { get; set; }
+
+        [ForeignKey("OrderId")]
+        public virtual List<OrderFurniture> OrderFurnitures { get; set; }
     }
 }

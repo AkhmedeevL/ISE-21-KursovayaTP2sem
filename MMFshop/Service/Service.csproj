@@ -47,13 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201806152138199_MMFfirstMigration.cs" />
-    <Compile Include="Migrations\201806152138199_MMFfirstMigration.Designer.cs">
-      <DependentUpon>201806152138199_MMFfirstMigration.cs</DependentUpon>
+    <Compile Include="BindingModel\AdminBindingModel.cs" />
+    <Compile Include="BindingModel\CustomerBindingModel.cs" />
+    <Compile Include="BindingModel\EntryBindingModel.cs" />
+    <Compile Include="BindingModel\FurnitureBindingModel.cs" />
+    <Compile Include="BindingModel\OrderBindingModel.cs" />
+    <Compile Include="BindingModel\OrderFurnitureBindingModel.cs" />
+    <Compile Include="Implementations\CustomerService.cs" />
+    <Compile Include="Implementations\FurnitureService.cs" />
+    <Compile Include="Implementations\MainService.cs" />
+    <Compile Include="Implementations\OrderService.cs" />
+    <Compile Include="Interfaces\IAdminService.cs" />
+    <Compile Include="Interfaces\ICustomerService.cs" />
+    <Compile Include="Interfaces\IOrderService.cs" />
+    <Compile Include="Interfaces\IFurnitureService.cs" />
+    <Compile Include="Interfaces\IMainService.cs" />
+    <Compile Include="Migrations\201806152241547_MMFshopMigration1.cs" />
+    <Compile Include="Migrations\201806152241547_MMFshopMigration1.Designer.cs">
+      <DependentUpon>201806152241547_MMFshopMigration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MMFdbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\CustomerEntryViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\EntryViewModel.cs" />
+    <Compile Include="ViewModels\FurnitureViewModel.cs" />
+    <Compile Include="ViewModels\OrderFurnitureViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -66,8 +88,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806152138199_MMFfirstMigration.resx">
-      <DependentUpon>201806152138199_MMFfirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806152241547_MMFshopMigration1.resx">
+      <DependentUpon>201806152241547_MMFshopMigration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

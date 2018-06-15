@@ -15,9 +15,7 @@ namespace Models
         public decimal Price { get; set; }
 
         [ForeignKey("FurnitureId")]
-        public virtual List<Entry> Entrys { get; set; }
+        public virtual List<OrderFurniture> OrderFurnitures { get; set; }
 
-        [ForeignKey("FurnitureId")]
-        public virtual List<FurniturePart> FurnitureParts { get; set; }
     }
 }
