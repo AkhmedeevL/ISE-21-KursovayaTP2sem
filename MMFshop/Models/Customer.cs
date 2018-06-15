@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
-    class Customer
+    public class Customer
     {
+        public int Id { get; set; }
+
+        [Required]
+        public string CustomerFIO { get; set; }
+
+        [Required]
+        public string CustomerLogin { get; set; }
+
+        [Required]
+        public string CustomerPassword { get; set; }
+
+        [ForeignKey("CustomerId")]
+        public virtual List<Entry> Entrys { get; set; }
     }
 }
