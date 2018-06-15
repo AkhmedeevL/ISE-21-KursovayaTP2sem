@@ -1,0 +1,12 @@
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\bin\Debug\Models.dll.config
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\bin\Debug\Models.dll
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\bin\Debug\Models.pdb
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\bin\Debug\EntityFramework.dll
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\bin\Debug\EntityFramework.xml
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\obj\Debug\Models.dll
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Models\obj\Debug\Models.pdb
