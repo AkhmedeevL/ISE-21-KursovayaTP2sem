@@ -10,15 +10,9 @@ namespace Models
         public int Id { get; set; }
 
         [Required]
-        public string AdminFIO { get; set; }
-
-        [Required]
         public string AdminLogin { get; set; }
 
         [Required]
         public string AdminPassword { get; set; }
-
-        [ForeignKey("AdminId")]
-        public virtual List<Entry> Entrys { get; set; }
     }
 }
