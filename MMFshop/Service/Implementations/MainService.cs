@@ -18,7 +18,7 @@ namespace Service.ImplementationsList
             this.context = context;
         }
 
-        public List<EntryViewModel> GetList()
+        public List<EntryViewModel> GetList(int id)
         {
             List<EntryViewModel> result = context.Entrys
                 .Select(rec => new EntryViewModel
@@ -49,7 +49,6 @@ namespace Service.ImplementationsList
                 DateCreate = DateTime.Now,
                 DateVisit = model.DataVisit,
                 Sum = model.Sum,
-                SumPay = model.SumPay,
                 Status = PaymentState.Не_оплачен
             });
             context.SaveChanges();
@@ -57,12 +56,52 @@ namespace Service.ImplementationsList
 
         public void PayEntry(EntryBindingModel model)
         {
-            context.Entrys.Add(new Entry
+            using (var transaction = context.Database.BeginTransaction())
             {
-                SumPay = model.SumPay,
-                Status = PaymentState.Оплачен
-            });
-            context.SaveChanges();
+                try
+                {
+
+                    Entry element = context.Entrys.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Элемент не найден");
+                    }
+                    element.SumPay = model.SumPay;
+                    element.Status = PaymentState.Оплачен;
+                    context.SaveChanges();
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public void PayPartEntry(EntryBindingModel model)
+        {
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+
+                    Entry element = context.Entrys.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Элемент не найден");
+                    }
+                    element.SumPay = model.SumPay;
+                    element.Status = PaymentState.Оплачен_частично;
+                    context.SaveChanges();
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
 
         public void DelElement(int id)

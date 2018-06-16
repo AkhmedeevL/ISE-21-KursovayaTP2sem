@@ -7,10 +7,11 @@ namespace Models
     public class Customer
     {
         public int Id { get; set; }
-        public string Mail { get; set; }
+        
         [Required]
         public string CustomerFIO { get; set; }
 
+        public string Mail { get; set; }
 
         [Required]
         public string CustomerPassword { get; set; }

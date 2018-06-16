@@ -13,5 +13,8 @@ C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.cs
 C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.csproj.CopyComplete
 C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.dll
 C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.pdb
-C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.Migrations.MMFshopMigration1.resources
 C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.csproj.GenerateResource.cache
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.Properties.Resources.resources
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\bin\Debug\itextsharp.dll
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\bin\Debug\itextsharp.xml
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.Migrations.MMFshopMigration2.resources

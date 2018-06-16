@@ -10,20 +10,21 @@ namespace Service.ImplementationsList
 {
     public class OrderService : IOrderService
     {
-        private MMFdbContext context; 
+        private MMFdbContext context;
 
         public OrderService(MMFdbContext context)
         {
             this.context = context;
         }
 
-        public List<OrderViewModel> GetList()
+        public List<OrderViewModel> GetList(int id)
         {
-            List<OrderViewModel> result = context.Orders
+            List<OrderViewModel> result = context.Orders.Where(rec => rec.CustomerID == id)
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
                     OrderName = rec.OrderName,
+                    CustomerID = rec.CustomerID,
                     Price = rec.Price,
                     OrderFurnitures = context.OrderFurnitures
                             .Where(recPC => recPC.OrderId == rec.Id)
@@ -50,6 +51,7 @@ namespace Service.ImplementationsList
                 {
                     Id = element.Id,
                     OrderName = element.OrderName,
+                    CustomerID = element.CustomerID,
                     Price = element.Price,
                     OrderFurnitures = context.OrderFurnitures
                             .Where(recPC => recPC.OrderId == element.Id)
@@ -73,18 +75,17 @@ namespace Service.ImplementationsList
             {
                 try
                 {
+
                     Order element = context.Orders.FirstOrDefault(rec => rec.OrderName == model.OrderName);
-                    if (element != null)
-                    {
-                        throw new Exception("Уже есть заказ с таким названием");
-                    }
                     element = new Order
                     {
                         OrderName = model.OrderName,
+                        CustomerID = model.CustomerID,
                         Price = model.Price
                     };
                     context.Orders.Add(element);
                     context.SaveChanges();
+
                     var groupFurnitures = model.OrderFurnitures
                                                 .GroupBy(rec => rec.FurnitureId)
                                                 .Select(rec => new
@@ -92,6 +93,7 @@ namespace Service.ImplementationsList
                                                     FurnitureId = rec.Key,
                                                     Price = rec.Sum(r => r.Price)
                                                 });
+
                     foreach (var groupFurniture in groupFurnitures)
                     {
                         context.OrderFurnitures.Add(new OrderFurniture
@@ -132,6 +134,7 @@ namespace Service.ImplementationsList
                     element.OrderName = model.OrderName;
                     element.Price = model.Price;
                     context.SaveChanges();
+
 
                     var compIds = model.OrderFurnitures.Select(rec => rec.FurnitureId).Distinct();
                     var updateFurnitures = context.OrderFurnitures
@@ -196,6 +199,7 @@ namespace Service.ImplementationsList
                     Order element = context.Orders.FirstOrDefault(rec => rec.Id == id);
                     if (element != null)
                     {
+
                         context.OrderFurnitures.RemoveRange(
                                             context.OrderFurnitures.Where(rec => rec.OrderId == id));
                         context.Orders.Remove(element);

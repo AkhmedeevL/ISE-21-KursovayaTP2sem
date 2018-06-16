@@ -1,0 +1,18 @@
+namespace Service.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class MMFshopMigration2 : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Orders", "CustomerID", c => c.Int(nullable: false));
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Orders", "CustomerID");
+        }
+    }
+}

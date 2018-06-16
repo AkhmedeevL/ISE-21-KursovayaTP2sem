@@ -6,7 +6,7 @@ namespace Service.Interfaces
 {
     public interface IOrderService
     {
-        List<OrderViewModel> GetList();
+        List<OrderViewModel> GetList(int id);
 
         OrderViewModel GetElement(int id);
 
