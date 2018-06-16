@@ -2,6 +2,7 @@
 using Service.Interfaces;
 using Service.ViewModel;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Unity;
 using Unity.Attributes;
@@ -55,7 +56,17 @@ namespace AdminInterface
             }
             try
             {
-                if (id.HasValue)
+                if (!string.IsNullOrEmpty(textBoxMail.Text))
+                {
+                    if (!Regex.IsMatch(textBoxMail.Text, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                    @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$"))
+                    {
+                        MessageBox.Show("Неверный формат для электронной почты", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                    if (id.HasValue)
                 {
                     service.UpdElement(new CustomerBindingModel
                     {
