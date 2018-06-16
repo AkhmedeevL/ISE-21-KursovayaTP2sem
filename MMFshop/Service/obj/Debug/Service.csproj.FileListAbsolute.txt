@@ -15,3 +15,4 @@ C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.dl
 C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.pdb
 C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.Migrations.MMFshopMigration1.resources
 C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.csproj.GenerateResource.cache
+C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\Service\obj\Debug\Service.Properties.Resources.resources
