@@ -68,6 +68,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,6 +78,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -101,6 +103,7 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -137,6 +140,9 @@
     <Compile Include="FormRegistration.xaml.cs">
       <DependentUpon>FormRegistration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormSendMail.xaml.cs">
+      <DependentUpon>FormSendMail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -171,15 +177,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\registration.png" />
-    <None Include="Resources\login.png" />
-    <None Include="Resources\cat.png" />
-    <None Include="Resources\shop.png" />
-    <None Include="Resources\update.png" />
-    <None Include="Resources\edit.png" />
-    <None Include="Resources\cancel.png" />
-    <None Include="Resources\add.png" />
-    <None Include="Resources\check.png" />
+    <Resource Include="Resources\registration.png" />
+    <Resource Include="Resources\login.png" />
+    <Resource Include="Resources\cat.png" />
+    <Resource Include="Resources\shop.png" />
+    <Resource Include="Resources\update.png" />
+    <Resource Include="Resources\edit.png" />
+    <Resource Include="Resources\cancel.png" />
+    <Resource Include="Resources\add.png" />
+    <Resource Include="Resources\check.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -235,6 +241,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FormSendMail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AdminInterface\AdminInterface.csproj">
@@ -249,6 +259,9 @@
       <Project>{d06bc6c1-13df-4b7b-ab0e-d6941f99b1e7}</Project>
       <Name>Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

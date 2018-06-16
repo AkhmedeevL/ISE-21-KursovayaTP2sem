@@ -19,11 +19,11 @@ namespace CustomerInterface
         public new IUnityContainer Container { get; set; }
 
         public int Id { set { id = value; } }
-
+        public int ID { set { iD = value; } }
         private readonly IOrderService service;
 
         private int? id;
-
+        private int iD;
         private List<OrderFurnitureViewModel> orderFurnitures;
 
         public FormOrder(IOrderService service)
@@ -156,6 +156,7 @@ namespace CustomerInterface
                     service.UpdElement(new OrderBindingModel
                     {
                         Id = id.Value,
+                        CustomerID = iD,
                         OrderName = textBoxName.Text,
                         Price = Convert.ToDecimal(textBoxPrice.Text),
                         OrderFurnitures = productComponentBM
@@ -166,6 +167,7 @@ namespace CustomerInterface
                     service.AddElement(new OrderBindingModel
                     {
                         OrderName = textBoxName.Text,
+                        CustomerID = iD,
                         Price = Convert.ToDecimal(textBoxPrice.Text),
                         OrderFurnitures = productComponentBM
                     });

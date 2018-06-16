@@ -18,19 +18,22 @@ namespace CustomerInterface
         [Dependency]
         public new IUnityContainer Container { get; set; }
 
-        private readonly ICustomerService serviceK;
 
         private readonly IOrderService serviceZ;
 
         private readonly IMainService serviceM;
 
-        public FormCreateEntry(ICustomerService serviceK, IOrderService serviceZ, IMainService serviceM)
+        public int Id { set { id = value; } }
+
+        private int id;
+
+        public FormCreateEntry(IOrderService serviceZ, IMainService serviceM)
         {
             InitializeComponent();
             Loaded += FormCreateEntry_Load;
             comboBoxOrder.SelectionChanged += comboBoxOrder_SelectedIndexChanged;
             comboBoxOrder.SelectionChanged += new SelectionChangedEventHandler(comboBoxOrder_SelectedIndexChanged);
-            this.serviceK = serviceK;
+
             this.serviceZ = serviceZ;
             this.serviceM = serviceM;
         }
@@ -39,15 +42,8 @@ namespace CustomerInterface
         {
             try
             {
-                List<CustomerViewModel> listK = serviceK.GetList();
-                if (listK != null)
-                {
-                    comboBoxCustomer.DisplayMemberPath = "CustomerFIO";
-                    comboBoxCustomer.SelectedValuePath = "Id";
-                    comboBoxCustomer.ItemsSource = listK;
-                    comboBoxCustomer.SelectedItem = null;
-                }
-                List<OrderViewModel> listZ = serviceZ.GetList();
+
+                List<OrderViewModel> listZ = serviceZ.GetList(id);
                 if (listZ != null)
                 {
                     comboBoxOrder.DisplayMemberPath = "OrderName";
@@ -91,11 +87,7 @@ namespace CustomerInterface
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (comboBoxCustomer.SelectedItem == null)
-            {
-                MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+
             if (comboBoxOrder.SelectedItem == null)
             {
                 MessageBox.Show("Выберите заказ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -116,11 +108,11 @@ namespace CustomerInterface
             {
                 serviceM.CreateEntry(new EntryBindingModel
                 {
-                    CustomerId = ((CustomerViewModel)comboBoxCustomer.SelectedItem).Id,
+                    CustomerId = id,
                     OrderId = ((OrderViewModel)comboBoxOrder.SelectedItem).Id,
                     Sum = Convert.ToDecimal(textBoxSum.Text),
                     DataVisit = datePickerDay.SelectedDate.ToString(),
-                    SumPay = 0,
+                    
 
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);

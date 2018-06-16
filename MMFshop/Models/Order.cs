@@ -14,6 +14,9 @@ namespace Models
         [Required]
         public decimal Price { get; set; }
 
+        [Required]
+        public int CustomerID { get; set; }
+
         [ForeignKey("OrderId")]
         public virtual List<Entry> Entrys { get; set; }
 

@@ -36,6 +36,17 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -58,14 +69,16 @@
     <Compile Include="Implementations\FurnitureService.cs" />
     <Compile Include="Implementations\MainService.cs" />
     <Compile Include="Implementations\OrderService.cs" />
+    <Compile Include="Implementations\ReportService.cs" />
     <Compile Include="Interfaces\IAdminService.cs" />
     <Compile Include="Interfaces\ICustomerService.cs" />
     <Compile Include="Interfaces\IOrderService.cs" />
     <Compile Include="Interfaces\IFurnitureService.cs" />
     <Compile Include="Interfaces\IMainService.cs" />
-    <Compile Include="Migrations\201806152241547_MMFshopMigration1.cs" />
-    <Compile Include="Migrations\201806152241547_MMFshopMigration1.Designer.cs">
-      <DependentUpon>201806152241547_MMFshopMigration1.cs</DependentUpon>
+    <Compile Include="Interfaces\IReportService.cs" />
+    <Compile Include="Migrations\201806160725088_MMFshopMigration2.cs" />
+    <Compile Include="Migrations\201806160725088_MMFshopMigration2.Designer.cs">
+      <DependentUpon>201806160725088_MMFshopMigration2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MMFdbContext.cs" />
@@ -95,8 +108,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806152241547_MMFshopMigration1.resx">
-      <DependentUpon>201806152241547_MMFshopMigration1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806160725088_MMFshopMigration2.resx">
+      <DependentUpon>201806160725088_MMFshopMigration2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

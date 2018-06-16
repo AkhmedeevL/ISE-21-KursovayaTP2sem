@@ -37,7 +37,7 @@ namespace CustomerInterface
                 MessageBox.Show("Заполните ФИО", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxPass.Text))
+            if (string.IsNullOrEmpty(textBoxPass.Password))
             {
                 MessageBox.Show("Придумайте пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -47,7 +47,7 @@ namespace CustomerInterface
                 MessageBox.Show("Введите свою почту", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (textBoxPass.Text != textBoxPassRepeat.Text)
+            if (textBoxPass.Password != textBoxPassRepeat.Password)
             {
                 MessageBox.Show("Пароли должны совпадать", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -56,7 +56,7 @@ namespace CustomerInterface
             {
                 string fio = textBoxFIO.Text;
                 string mail = textBoxMail.Text;
-                string pass = textBoxPass.Text;
+                string pass = textBoxPass.Password;
                 if (!string.IsNullOrEmpty(mail))
                 {
                     if (!Regex.IsMatch(mail, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +

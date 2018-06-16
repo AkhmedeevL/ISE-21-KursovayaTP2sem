@@ -19,6 +19,9 @@ namespace CustomerInterface
 
         private readonly IOrderService service;
 
+        public int Id { set { id = value; } }
+
+        private int id;
         public FormOrders(IOrderService service)
         {
             InitializeComponent();
@@ -35,7 +38,7 @@ namespace CustomerInterface
         {
             try
             {
-                List<OrderViewModel> list = service.GetList();
+                List<OrderViewModel> list = service.GetList(id);
                 if (list != null)
                 {
                     dataGridViewOrders.ItemsSource = list;
@@ -64,6 +67,7 @@ namespace CustomerInterface
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormOrder>();
+            form.ID = id;
             if (form.ShowDialog() == true)
                 LoadData();
         }

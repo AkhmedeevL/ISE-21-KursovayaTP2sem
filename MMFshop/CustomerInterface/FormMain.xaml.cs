@@ -1,4 +1,5 @@
-﻿using Service.Interfaces;
+﻿using Service;
+using Service.Interfaces;
 using Service.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -17,21 +18,26 @@ namespace CustomerInterface
         [Dependency]
         public new IUnityContainer Container { get; set; }
 
+        private MMFdbContext context;
+
         private readonly IMainService service;
 
-        //private readonly IReportService reportService;
+        public int Id { set { id = value; } }
 
-        public FormMain(IMainService service)
+        private int id;
+
+        public FormMain(IMainService service, MMFdbContext context)
         {
             InitializeComponent();
             this.service = service;
+            this.context = context;
         }
 
         private void LoadData()
         {
             try
             {
-                List<EntryViewModel> list = service.GetList();
+                List<EntryViewModel> list = service.GetList(id);
                 if (list != null)
                 {
                     dataGridView.ItemsSource = list;
@@ -50,12 +56,21 @@ namespace CustomerInterface
         private void заказыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormOrders>();
+            form.Id = id;
+            form.ShowDialog();
+        }
+
+        private void прайсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormSendMail>();
+            form.Id = id;
             form.ShowDialog();
         }
 
         private void buttonCreateEntry_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormCreateEntry>();
+            form.Id = id;
             form.ShowDialog();
             LoadData();
         }
@@ -103,6 +118,7 @@ namespace CustomerInterface
         private void заказыКлиентаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormCustomerEntrys>();
+            form.Id = id;
             form.ShowDialog();
         }
     }

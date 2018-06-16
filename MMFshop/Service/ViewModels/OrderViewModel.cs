@@ -9,7 +9,7 @@ namespace Service.ViewModel
         public string OrderName { get; set; }
 
         public decimal Price { get; set; }
-
+        public int CustomerID { get; set; }
         public List<OrderFurnitureViewModel> OrderFurnitures { get; set; }
     }
 }
