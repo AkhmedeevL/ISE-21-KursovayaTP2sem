@@ -12,11 +12,12 @@ namespace AdminInterface
         public new IUnityContainer Container { get; set; }
 
         private readonly IMainService service;
-
-        public FormMain(IMainService service)
+        private readonly ISerializeService serviceS;
+        public FormMain(IMainService service, ISerializeService serviceS)
         {
             InitializeComponent();
             this.service = service;
+            this.serviceS = serviceS;
         }
 
         //private void добавитьToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -46,6 +47,20 @@ namespace AdminInterface
         {
             var form = Container.Resolve<FormCustomers>();
             form.ShowDialog();
+        }
+
+        private void BackupButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                serviceS.GetData();
+                MessageBox.Show("Бэкап создан", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Models;
 using Service;
+using Service.Interfaces;
 using System;
 using System.Data.SqlClient;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace CustomerInterface
         string AdminLogin = "admin";
         string AdminPassword = "admin";
         private MMFdbContext context;
+
         public FormAuthorization(MMFdbContext context)
         {
             InitializeComponent();
@@ -30,7 +32,9 @@ namespace CustomerInterface
             if (textBoxFIO.Text == AdminLogin && textBoxPass.Password == AdminPassword)
             {
                 Close();
+                //flag
                 var form = Container.Resolve<AdminInterface.FormMain>();
+                //var form = Container.Resolve<AdminInterface.FormMain>();
                 form.ShowDialog();
             }
 

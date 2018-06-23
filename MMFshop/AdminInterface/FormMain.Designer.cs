@@ -30,6 +30,7 @@
         {
             this.ButtonFurniture = new System.Windows.Forms.Button();
             this.ButtonCustomers = new System.Windows.Forms.Button();
+            this.BackupButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonFurniture
@@ -52,14 +53,25 @@
             this.ButtonCustomers.UseVisualStyleBackColor = true;
             this.ButtonCustomers.Click += new System.EventHandler(this.ButtonCustomers_Click);
             // 
+            // BackupButton
+            // 
+            this.BackupButton.Location = new System.Drawing.Point(64, 173);
+            this.BackupButton.Name = "BackupButton";
+            this.BackupButton.Size = new System.Drawing.Size(268, 43);
+            this.BackupButton.TabIndex = 2;
+            this.BackupButton.Text = "Создать бэкап";
+            this.BackupButton.UseVisualStyleBackColor = true;
+            this.BackupButton.Click += new System.EventHandler(this.BackupButton_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 180);
+            this.ClientSize = new System.Drawing.Size(399, 235);
+            this.Controls.Add(this.BackupButton);
             this.Controls.Add(this.ButtonCustomers);
             this.Controls.Add(this.ButtonFurniture);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "Администрирование";
             this.ResumeLayout(false);
@@ -69,5 +81,6 @@
         #endregion
         private System.Windows.Forms.Button ButtonFurniture;
         private System.Windows.Forms.Button ButtonCustomers;
+        private System.Windows.Forms.Button BackupButton;
     }
 }
