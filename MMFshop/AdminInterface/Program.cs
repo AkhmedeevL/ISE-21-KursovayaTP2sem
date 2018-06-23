@@ -1,4 +1,5 @@
 ﻿using Service;
+using Service.ImplementationBD;
 using Service.ImplementationsList;
 using Service.Interfaces;
 using System;
@@ -32,6 +33,7 @@ namespace AdminInterface
             currentContainer.RegisterType<IFurnitureService, FurnitureService>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IOrderService, OrderService>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IMainService, MainService>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ISerializeService, SerializeService>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
     }
