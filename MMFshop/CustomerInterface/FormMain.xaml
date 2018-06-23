@@ -41,7 +41,7 @@
             </Button.ContentTemplate>
 
         </Button>
-        <Button x:Name="buttonRef"  HorizontalAlignment="Left" Margin="368,122,0,0" VerticalAlignment="Top" Width="138" Height="28" Click="buttonRef_Click">
+        <Button x:Name="buttonRef"  HorizontalAlignment="Left" Margin="368,122,0,0" VerticalAlignment="Top" Width="138" Height="29" Click="buttonRef_Click">
             <Button.ContentTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

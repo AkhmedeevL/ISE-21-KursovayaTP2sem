@@ -31,6 +31,7 @@ namespace CustomerInterface
             InitializeComponent();
             this.service = service;
             this.context = context;
+            //LoadData();
         }
 
         private void LoadData()
@@ -121,5 +122,7 @@ namespace CustomerInterface
             form.Id = id;
             form.ShowDialog();
         }
+
+
     }
 }

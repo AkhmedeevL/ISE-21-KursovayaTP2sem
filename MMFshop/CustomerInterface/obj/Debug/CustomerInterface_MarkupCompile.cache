@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\CustomerInterface\obj\Debug\
+C:\Users\len-r\source\repos\ISE-21-KursovayaTP2sem2\MMFshop\CustomerInterface\obj\Debug\
 CustomerInterface
 none
 false
 DEBUG;TRACE
-C:\Users\len-r\source\repos\KursovayaTP2sem\MMFshop\CustomerInterface\App.xaml
+C:\Users\len-r\source\repos\ISE-21-KursovayaTP2sem2\MMFshop\CustomerInterface\App.xaml
 11-1333134219
 51001242449
-16180013688
-91682902122
+201860887903
+391429558412
 FormAuthorization.xaml;FormCreateEntry.xaml;FormCustomerEntrys.xaml;FormEnter.xaml;FormMain.xaml;FormOrder.xaml;FormOrderFurniture.xaml;FormOrders.xaml;FormPayEntry.xaml;FormRegistration.xaml;FormSendMail.xaml;
 
-False
+True
 

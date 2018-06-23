@@ -5,14 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomerInterface"
         mc:Ignorable="d"
-        Title="Отправить на почту" Height="206.9" Width="432.3">
-    <Grid Height="174" VerticalAlignment="Top" Margin="0,0,2.2,0">
-        <TextBox x:Name="textBoxMail" HorizontalAlignment="Left" Height="32" Margin="116,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
-        <Label Content="e-mail:" HorizontalAlignment="Left" Height="32" Margin="18,15,0,0" VerticalAlignment="Top" Width="65"/>
-        <Label Content="Формат:" HorizontalAlignment="Left" Height="29" Margin="18,73,0,0" VerticalAlignment="Top" Width="71"/>
-        <CheckBox x:Name="checkBoxWord" Content="Word" HorizontalAlignment="Left" Height="29" Margin="116,79,0,0" VerticalAlignment="Top" Width="98"/>
-        <CheckBox x:Name="checkBoxExcel" Content="Excel" HorizontalAlignment="Left" Height="29" Margin="219,79,0,0" VerticalAlignment="Top" Width="116"/>
-        <Button x:Name="buttonCancel" Content="Отмена" Margin="240,118,83,26" Click="buttonCancel_Click">
+        Title="Отправить на почту" Height="160.5" Width="403.5">
+    <Grid Height="128" VerticalAlignment="Top" HorizontalAlignment="Left" Width="387">
+        <Label Content="Формат:" HorizontalAlignment="Left" Height="29" Margin="35,15,0,0" VerticalAlignment="Top" Width="71"/>
+        <CheckBox x:Name="checkBoxWord" Content="Word" HorizontalAlignment="Left" Height="29" Margin="133,21,0,0" VerticalAlignment="Top" Width="98" Checked="checkBoxWord_Checked"/>
+        <CheckBox x:Name="checkBoxExcel" Content="Excel" HorizontalAlignment="Left" Height="29" Margin="257,21,0,0" VerticalAlignment="Top" Width="116" Checked="checkBoxExcel_Checked"/>
+        <Button x:Name="buttonCancel" Content="Отмена" Margin="257,60,0,0" Click="buttonCancel_Click" HorizontalAlignment="Left" Width="99" Height="29" VerticalAlignment="Top">
             <Button.ContentTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -22,7 +20,7 @@
                 </DataTemplate>
             </Button.ContentTemplate>
         </Button>
-        <Button x:Name="buttonMail" Content="Отправить" Margin="116,118,207,26" Click="buttonMail_Click">
+        <Button x:Name="buttonMail" Content="Отправить" Margin="133,60,0,0" Click="buttonMail_Click" HorizontalAlignment="Left" Width="99" Height="29" VerticalAlignment="Top">
             <Button.ContentTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

@@ -108,6 +108,10 @@ namespace Service.ImplementationsList
 
         public void SaveFurniturePriceExcel(ReportBindingModel model)
         {
+            if (File.Exists(model.FileName))
+            {
+                File.Delete(model.FileName);
+            }
             var excel = new Microsoft.Office.Interop.Excel.Application();
             try
             {

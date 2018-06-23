@@ -115,6 +115,9 @@ namespace CustomerInterface
             SendMail();
         }
 
+        private void WindowsFormsHost_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
 
+        }
     }
 }

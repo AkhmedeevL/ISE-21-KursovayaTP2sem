@@ -46,21 +46,15 @@ namespace CustomerInterface
         void SendMail()
         {
             Customer element = context.Customers.FirstOrDefault(kl => kl.Id == id);
-            if (textBoxMail.Text != "")
-            {
-                mail = textBoxMail.Text.ToString();
-            }
-            else
-            {
                 mail = element.Mail;
-            }
+
             if (checkBoxWord.IsChecked == true)
             {
                 file = "D://Price.docx";
             }
             else
             {
-                file = "D://Price.xlsx";
+                file = "D://Price.xls";
             }
 
             if (!Regex.IsMatch(mail, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
@@ -108,7 +102,7 @@ namespace CustomerInterface
                     checkBoxWord.IsChecked = false;
                     reportService.SaveFurniturePriceExcel(new ReportBindingModel
                     {
-                        FileName = "D:Price.xlsx"
+                        FileName = "D:Price.xls"
                     });
                     SendMail();
                 }
@@ -123,6 +117,16 @@ namespace CustomerInterface
         {
             DialogResult = false;
             Close();
+        }
+
+        private void checkBoxWord_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxExcel.IsChecked = false;
+        }
+
+        private void checkBoxExcel_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxWord.IsChecked = false;
         }
     }
 }
